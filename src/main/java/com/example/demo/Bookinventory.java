@@ -11,7 +11,7 @@ public class Bookinventory {
     private long id;
 
     @Column(name="isbn")
-    private long bookISBN;
+    private String bookISBN;
 
     @Column(name = "quantity" )
     private long quantity;
@@ -25,7 +25,7 @@ public class Bookinventory {
     public Bookinventory() {
     }
 
-    public Bookinventory(long bookISBN,
+    public Bookinventory(String  bookISBN,
                          long quantity,
                          boolean bookInStock) {
         this.bookISBN = bookISBN;
@@ -41,11 +41,11 @@ public class Bookinventory {
         this.id = id;
     }
 
-    public long getBookISBN() {
+    public String getBookISBN() {
         return bookISBN;
     }
 
-    public void setBookISBN(long bookISBN) {
+    public void setBookISBN(String bookISBN) {
         this.bookISBN = bookISBN;
     }
 

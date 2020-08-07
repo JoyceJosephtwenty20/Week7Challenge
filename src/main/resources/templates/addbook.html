@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=”www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/addbookprocess}" th:object="${book}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    Book Title:
+    <input type="text" id="bootTitle" placeholder="Book Title" th:field="*{bootTitle}"/>
+    ISBN:
+    <input type="text" id="bookISBN" placeholder="Book Title" th:field="*{bookISBN}"/>
+    Author:
+    <input type="text" id="bookAuthor" placeholder="Book Title" th:field="*{bookAuthor}"/>
+    Category:
+    <input type="text" id="bookCategory" placeholder="Book Title" th:field="*{bookCategory}"/>
+    Year:
+    <input type="text" id="bookYear" placeholder="Book Title" th:field="*{bookYear}"/>
+
+
+
+    <button type="submit" class="btn btn-default"> Submit</button>
+
+</form>
+
+
+
+</body>
+</html>

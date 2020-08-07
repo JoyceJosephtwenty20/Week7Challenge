@@ -14,7 +14,7 @@ public class Book {
     private String bootTitle;
 
     @Column(name="isbn")
-    private long bookISBN;
+    private String bookISBN;
 
     @Column(name="author")
     private String bookAuthor;
@@ -26,16 +26,16 @@ public class Book {
     private String bookYear;
 
 
-    private String bookThumbnail;
+//    private String bookThumbnail;
 
     public Book() {
     }
 
-    @OneToOne
-    private Book book;
+    @ManyToOne
+    private Bookinventory bookinventory;
 
     public Book(String bootTitle,
-                long bookISBN,
+                String bookISBN,
                 String bookAuthor,
                 String bookCategory,
                 String bookYear) {
@@ -43,7 +43,6 @@ public class Book {
         this.bookISBN = bookISBN;
         this.bookAuthor = bookAuthor;
         this.bookCategory = bookCategory;
-        this.bookQuantity = bookQuantity;
         this.bookYear = bookYear;
     }
 
@@ -63,11 +62,11 @@ public class Book {
         this.bootTitle = bootTitle;
     }
 
-    public long getBookISBN() {
+    public String getBookISBN() {
         return bookISBN;
     }
 
-    public void setBookISBN(long bookISBN) {
+    public void setBookISBN(String bookISBN) {
         this.bookISBN = bookISBN;
     }
 
@@ -95,11 +94,19 @@ public class Book {
         this.bookYear = bookYear;
     }
 
-    public String getBookThumbnail() {
-        return bookThumbnail;
+    public Bookinventory getBookinventory() {
+        return bookinventory;
     }
 
-    public void setBookThumbnail(String bookThumbnail) {
-        this.bookThumbnail = bookThumbnail;
+    public void setBookinventory(Bookinventory bookinventory) {
+        this.bookinventory = bookinventory;
     }
+
+    //    public String getBookThumbnail() {
+//        return bookThumbnail;
+//    }
+//
+//    public void setBookThumbnail(String bookThumbnail) {
+//        this.bookThumbnail = bookThumbnail;
+//    }
 }
