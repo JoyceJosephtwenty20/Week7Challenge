@@ -1,46 +1,50 @@
 package com.example.demo;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
-@Table(name="Book_Database")
-public class Book {
+@Table(name="Book_Table")
 
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name="title")
-    private String bootTitle;
-
-    @Column(name="isbn")
+    @Column(name = "bookisbn")
     private String bookISBN;
 
-    @Column(name="author")
+    @Column(name = "bookTitle")
+    private String bookTitle;
+
+    @Column(name = "enabled")
+    private boolean isInStock;
+
+    @Column(name = "Author")
     private String bookAuthor;
 
-    @Column(name="category")
+    @Column(name = "category")
     private String bookCategory;
 
-    @Column(name="year")
+    @Column(name = "year")
     private String bookYear;
 
 
-//    private String bookThumbnail;
+    private String headshot;
 
     public Book() {
     }
 
-    @ManyToOne
-    private Bookinventory bookinventory;
-
-    public Book(String bootTitle,
-                String bookISBN,
-                String bookAuthor,
-                String bookCategory,
-                String bookYear) {
-        this.bootTitle = bootTitle;
+    public Book(String bookISBN, String bookTitle, boolean isInStock,
+                String bookAuthor, String bookCategory, String bookYear) {
         this.bookISBN = bookISBN;
+        this.bookTitle = bookTitle;
+        this.isInStock = isInStock;
         this.bookAuthor = bookAuthor;
         this.bookCategory = bookCategory;
         this.bookYear = bookYear;
@@ -54,20 +58,36 @@ public class Book {
         this.id = id;
     }
 
-    public String getBootTitle() {
-        return bootTitle;
-    }
-
-    public void setBootTitle(String bootTitle) {
-        this.bootTitle = bootTitle;
-    }
-
     public String getBookISBN() {
         return bookISBN;
     }
 
     public void setBookISBN(String bookISBN) {
         this.bookISBN = bookISBN;
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public boolean isInStock() {
+        return isInStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        isInStock = inStock;
+    }
+
+    public String getHeadshot() {
+        return headshot;
+    }
+
+    public void setHeadshot(String headshot) {
+        this.headshot = headshot;
     }
 
     public String getBookAuthor() {
@@ -93,20 +113,4 @@ public class Book {
     public void setBookYear(String bookYear) {
         this.bookYear = bookYear;
     }
-
-    public Bookinventory getBookinventory() {
-        return bookinventory;
-    }
-
-    public void setBookinventory(Bookinventory bookinventory) {
-        this.bookinventory = bookinventory;
-    }
-
-    //    public String getBookThumbnail() {
-//        return bookThumbnail;
-//    }
-//
-//    public void setBookThumbnail(String bookThumbnail) {
-//        this.bookThumbnail = bookThumbnail;
-//    }
 }

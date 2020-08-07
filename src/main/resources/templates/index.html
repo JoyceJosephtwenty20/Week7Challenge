@@ -1,15 +1,89 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th=”www.thymeleaf.org”>
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th=”www.thymeleaf.org”
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Untitled</title>
+    <meta charset="utf-8"/>
+    <div th:replace="base :: headerfg"> </div>
+
 </head>
-<body>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Header -->
+    <header id="header" class="alt">
+        <!-- Logo -->
+
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li class="current"><a th:href="@{home}">Home</a></li>
+
+                <li sec:authorize="isAuthenticated()"><a class="nav-link" th:href="@{allbooks}"> All Books </a></li>
+                <li sec:authorize="!isAuthenticated()"><a class="nav-link" th:href="@{/login}">Login</a></li>
+                <li sec:authorize="hasRole('ADMIN')"> <a class="nav-link" th:href="@{register}"> Add New Book </a></li>
+                <li sec:authorize="isAuthenticated()"><a class="nav-link" th:href="@{/logout}">Logout</a>  </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Nav -- END ---->
+
+
+    <!-- Banner -->
+
+    <section id="banner">
+        <div class="content primary">
+            <header>
+                <h1> MC Liberary  <br/>
+                   </h1>
+                <p> Rockville, MD </p>
+            </header>
+
+        </div>
+        <div class="content secondary">
+            <div class="inner">
+                <div class="features">
+                    <section>
+
+                        <img src="https://ae01.alicdn.com/kf/H6d4b60ff34c943d5b1dd5d778be064948.jpg?width=800&height=800&hash=1600.jpg" width="200" height="400"/>
+
+
+                    </section>
+                    <section>
+                        <img src="https://prodimage.images-bn.com/pimages/9781909979444_p0_v1_s550x406.jpg" width="200" height="400"/>
+                    </section>
+                    <section>
+                        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/10/17/12/jhjka.jpg" width="200" height="400"/>
+                    </section>
+                    <section>
+                        <img src="https://s3.amazonaws.com/tinycards/image/1d9c724e08771915228a4e2256762aaf" width="200" height="400"/>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <video src="http://108.48.50.58:6723/Site/images/banner.mp4"></video>
+
+    </section>
 
 
 
+</div>
+</div>
+</div>
+</section>
 
+<div th:replace="base :: footernote"></div>
 
+</div>
+
+<!-- Footer and Scripts -->
+
+<div th:replace="base :: footerfg"></div>
 
 
 </body>

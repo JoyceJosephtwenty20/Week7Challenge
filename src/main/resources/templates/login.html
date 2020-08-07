@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=”www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="http://108.48.50.58:6723/Site/assets/login/assets/css/main.css" />
+</head>
+<body>
+
+<!-- Header -->
+
+<header id="header">
+    <h1> MC Liberary </h1>
+    <p> Login </p>
+</header>
+
+<!-- Signup Form -->
+<div th:if="${param.error}"> Invalid Username or Password </div>
+<div th:if="${param.logout}"> <font color="#7fff00" >You have been successfully Logged Out  </font></div>
+
+<form th:action="@{/login}" method="post" id="signup-form">
+
+    <div>
+        <input type="text" name="username" placeholder="username" />
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="password" />
+    </div>
+
+    <div>
+        <input type="submit" value="Sign in"/>
+    </div>
+
+</form>
+
+</div>
+
+<br/>
+<br/>
+<br/>
+<footer>
+
+    <div class="copyright" align="center">
+        <p>&copy; 2020 - 2021 MC Library </p>
+    </div>
+</footer>
+
+
+</body>
+</html>
